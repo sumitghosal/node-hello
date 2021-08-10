@@ -48,7 +48,7 @@ pipeline {
         stage ('K8S Deploy') {
          steps {
                 kubernetesDeploy(
-                    configs: 'node-hello/kubernatesdeploy.yaml',
+                    configs: '/var/lib/jenkins/node-hello/kubernatesdeploy.yaml',
                     kubeconfigId: 'K8S',
                     enableConfigSubstitution: true
                     )               
