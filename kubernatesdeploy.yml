@@ -1,0 +1,35 @@
+api version: apps/v1
+kind : Deployment
+metadata: 
+    name: jenkinstest
+spec:
+   replicas : 1
+   selectors :
+   matchLabels :  
+    app: node.js
+ template:
+   metadata:
+   labels: 
+    app: nodeapp
+ spec:
+  containers: 
+    -name: myjenkinsdeploy
+     image : 772662843713.dkr.ecr.us-east-1.amazonaws.com/jenkinstest:Latest
+     imagePullPolicy : Always
+     ports : 
+    -containerPort : 8085
+
+
+----------
+
+apoVersion: v1
+kind: service
+ metadata: nodsjs-app-svc
+spec:
+ selector:
+ app: nodejs app
+ ports:
+-protocol: TCP
+ port: 80
+ targetPort: 8085
+type: LoabBalancer
