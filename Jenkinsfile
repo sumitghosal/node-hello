@@ -56,7 +56,7 @@ pipeline {
           steps {
              script {
                  sh "/usr/local/bin/kubectl get nodes"
-                 sh "/usr/local/bin/kubectl -f node-hello/kubernatesdeploy.yaml"
+                 sh "/usr/local/bin/kubectl apply -f node-hello/kubernatesdeploy.yaml"
         }
        }
      }
