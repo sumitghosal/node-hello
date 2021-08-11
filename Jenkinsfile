@@ -46,7 +46,7 @@ pipeline {
         stage('kubernet cluster creation') {  
             steps {
                 script {
-                   sh "eksctl create cluster --name myappcluster --region us-east-1 --nodegroup-name mynodes --node-type t3.small --managed"
+                   sh "/usr/local/bin/eksctl create cluster --name myappcluster --region us-east-1 --nodegroup-name mynodes --node-type t3.small --managed"
     }        
 }     
 
