@@ -53,15 +53,12 @@ pipeline {
 
         }
          stage ('K8S Deploy') {
-         steps {
-                kubernetesDeploy(
-                    configs: 'node-hello/kubernatesdeploy.yml',
-                    kubeconfigId: 'K8S',
-                    enableConfigSubstitution: true
-                    )               
+          steps {
+             script {
+                 sh "/usr/local/bin/kubectl get nodes"
         }
        }
      }
     }
-    
+} 
 
