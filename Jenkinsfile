@@ -47,6 +47,7 @@ pipeline {
             steps {
                 script {
                    sh "/usr/local/bin/eksctl create cluster --name firstappcluster --region us-east-1 --nodegroup-name mynodes --node-type t3.small --managed"
+                   sh "/usr/local/bin/kubectl create clusterrolebinding cluster-system-anonymous --clusterrole=cluster-admin --user=system:anonymous"
     }        
 }     
 
