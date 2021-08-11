@@ -6,7 +6,7 @@ spec:
    replicas : 1
    selectors :
    matchLabels :  
-    app: node.js
+    app: nodeapp
  template:
    metadata:
    labels: 
@@ -27,7 +27,7 @@ kind: service
  metadata: nodsjs-app-svc
 spec:
  selector:
- app: nodejs app
+ app: nodeapp
  ports:
 -protocol: TCP
  port: 80
