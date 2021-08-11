@@ -46,7 +46,7 @@ pipeline {
         stage('kubernet cluster creation') {  
             steps {
                 script {
-                   sh "/usr/local/bin/eksctl create cluster --name myappcluster --region us-east-1a --nodegroup-name mynodes --node-type t3.small --managed"
+                   sh "/usr/local/bin/eksctl create cluster --name myappcluster --region us-east-1 --nodegroup-name mynodes --node-type t3.small --managed"
                    sh "/usr/local/bin/kubectl create clusterrolebinding cluster-system-anonymous --clusterrole=cluster-admin --user=system:anonymous"
     }        
 }     
@@ -56,7 +56,7 @@ pipeline {
           steps {
              script {
                  sh "/usr/local/bin/kubectl get nodes"
-                 sh "/usr/local/bin/kubectl apply -f /var/lib/jenkins/node-hello/kubernatesdeploy.yaml"
+                 sh "/usr/local/bin/kubectl apply -f ${WORKSPACE}/node-hello/kubernatesdeploy.yaml"
         }
        }
      }
